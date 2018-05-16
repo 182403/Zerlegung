@@ -1,0 +1,47 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package zerlegung.von.zahlen;
+
+/**
+ *
+ * @author johan
+ */
+import java.util.Scanner;
+public class ZerlegungVonZahlen {
+
+    public static void main(String[] args) {
+    // TODO code application logic here
+    Scanner ts = new Scanner(System.in);
+    
+    int[] zahl = new int[16];
+    System.out.println("Zahl angeben: ");
+    int number = ts.nextInt();
+        
+    String tmpString = "" + number;
+    int[] numberArray = new int[tmpString.length()];
+    for (int i = 0; i < tmpString.length(); i++) {
+        numberArray[i] = Integer.parseInt(tmpString.substring(i, i + 1));
+    }
+    
+    int o = zahl.length -1;
+    
+    while (number > 0) {
+        zahl[o] = number % 2;
+        number = number / 2;
+        o--;
+    }o++;
+    
+    for (int i = 0; i < numberArray.length; i = i + 1) {
+        System.out.print(numberArray[i] + "\t");
+    }
+    System.out.println("");
+    System.out.println("In Binär: ");
+    for (; o<zahl.length; o++) {
+        System.out.print(zahl[o]);
+    }
+}
+}
+
